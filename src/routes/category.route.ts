@@ -5,7 +5,7 @@ import {upload} from "../middleware/upload.middleware";
 
 const router = Router();
 
-router.post("/",  upload.single("image"), createCategory);
+router.post("/",  authenticate, upload.single("image"), createCategory);
 router.get("/", getCategories);
 router.get("/:id", getCategoryById);
 router.put("/:id", authenticate, upload.single("image"), updateCategory);
